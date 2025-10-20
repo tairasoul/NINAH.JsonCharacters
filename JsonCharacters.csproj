@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>tairasoul.ninah.jsoncharacters</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>13</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.738" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../CharacterLib/CharacterLib.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../Dlls/Newtonsoft.Json.dll">
+      <LogicalName>Newtonsoft</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Localization">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Unity.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Core">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Il2CppSystem.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Il2CppSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppInterop.Common">
+      <HintPath>../ninah-gamedir/BepInEx/core/Il2CppInterop.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppInterop.Runtime">
+      <HintPath>../ninah-gamedir/BepInEx/core/Il2CppInterop.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppInterop.Generator">
+      <HintPath>../ninah-gamedir/BepInEx/core/Il2CppInterop.Generator.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppInterop.HarmonySupport">
+      <HintPath>../ninah-gamedir/BepInEx/core/Il2CppInterop.HarmonySupport.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>../ninah-gamedir/BepInEx/interop/UniTask.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinner">
+      <HintPath>../ninah-gamedir/BepInEx/interop/YarnSpinner.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.Google.Protobuf">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Yarn.Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.Memory">
+      <HintPath>../ninah-gamedir/BepInEx/interop/Yarn.System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>../ninah-gamedir/BepInEx/interop/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinner.Unity">
+      <HintPath>../ninah-gamedir/BepInEx/interop/YarnSpinner.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="ECM2">
+      <HintPath>../ninah-gamedir/BepInEx/interop/ECM2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
