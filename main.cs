@@ -124,13 +124,19 @@ class Plugin : BasePlugin {
     if (!Directory.Exists(folder))
       Directory.CreateDirectory(folder);
     foreach (string dir in Directory.EnumerateDirectories(folder)) {
-      string jsonFile = Path.Join(dir, "character.json");
-      if (File.Exists(jsonFile)) {
-        LoadJsonFile(jsonFile);
+      try
+      {
+        string jsonFile = Path.Join(dir, "character.json");
+        if (File.Exists(jsonFile))
+        {
+          LoadJsonFile(jsonFile);
+        }
+        else
+        {
+          Log.LogError($"Expected character.json in directory Characters/{new DirectoryInfo(dir).Name}.");
+        }
       }
-      else {
-        Log.LogError($"Expected character.json in directory Characters/{new DirectoryInfo(dir).Name}.");
-      }
+      catch (Exception) {}
     }
     loadContext.Unload();
   }
@@ -366,7 +372,7 @@ class Plugin : BasePlugin {
       errors.Add($"Got invalid room {cjson.room} for character {cjson.name}'s room.");
     }
     if (HadError) {
-      Log.LogError($"Encountered errors loading {cjson.name}:\n{string.Join("\n", errors).Select((v) => $"    {v}")}");
+      Log.LogError($"Encountered errors loading {cjson.name}:\n{string.Join("\n", errors.Select((v) => $"    {v}"))}");
       return;
     }
     CharacterLibrary.AddCharacter(builder.Build());
