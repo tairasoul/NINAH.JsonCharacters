@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.Loader;
 using _Code.Characters;
@@ -6,14 +5,12 @@ using _Code.Infrastructure.Sound;
 using _Code.Menues.HUD.Animations;
 using _Code.Rooms;
 using BepInEx;
-using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 using DG.Tweening;
-using Newtonsoft.Json;
-using tairasoul.ninah.characterlib;
-using tairasoul.ninah.characterlib.utils;
 using UnityEngine;
 using UnityEngine.Networking;
+using CharacterLib;
+using CharacterLib.Utils;
 
 namespace tairasoul.ninah.jsoncharacters;
 
@@ -113,7 +110,7 @@ struct CharacterJson {
 }
 
 [BepInDependency("tairasoul.ninah.characterlib")]
-[BepInPlugin("tairasoul.ninah.jsoncharacters", "JsonCharacters", "1.0.0")]
+[BepInPlugin("tairasoul.ninah.jsoncharacters", "JsonCharacters", "1.0.1")]
 class Plugin : BasePlugin {
   private Type JsonConvertType;
   private Dictionary<string, Texture2D> existingTextures = [];
@@ -372,7 +369,7 @@ class Plugin : BasePlugin {
       Log.LogError($"Encountered errors loading {cjson.name}:\n{string.Join("\n", errors).Select((v) => $"    {v}")}");
       return;
     }
-    CharacterLib.AddCharacter(builder.Build());
+    CharacterLibrary.AddCharacter(builder.Build());
   }
 
   bool processRoomState(string basePath, KeyValuePair<string, JsonRoomState> state, List<string> errors, string errorStr, out RoomObjectState<ERoomPeopleState> objectState) {
@@ -460,7 +457,7 @@ class Plugin : BasePlugin {
         errors.Add($"Expected content in files for {charName}.{dialogue.path} ({dialogue.locale} locale), got no content.");
         return false;
       }
-      CharacterLib.AddDialogue(dialogue.locale, $"{charName}.{dialogue.path}", fileContent);
+      CharacterLibrary.AddDialogue(dialogue.locale, $"{charName}.{dialogue.path}", fileContent);
     }
     else
     {
@@ -476,7 +473,7 @@ class Plugin : BasePlugin {
         return false;
       }
       string fileContent = File.ReadAllText(filePath);
-      CharacterLib.AddDialogue(dialogue.locale, $"{charName}.{Path.GetFileName(dialogue.path)}", fileContent);
+      CharacterLibrary.AddDialogue(dialogue.locale, $"{charName}.{Path.GetFileName(dialogue.path)}", fileContent);
     }
     return true;
   }
